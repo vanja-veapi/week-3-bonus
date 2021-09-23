@@ -102,6 +102,7 @@ main
     background-size: 505px; */
     background-position: -373px -160px;
     background-size: 760px;
+    box-shadow: 0 10px 40px rgba(0,0,0, 0.5);
 }
 .card-image
 {
