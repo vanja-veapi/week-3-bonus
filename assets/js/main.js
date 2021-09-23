@@ -1,6 +1,6 @@
 window.addEventListener("load", function(){
     
-    let title = this.document.querySelectorAll(".title");
+    let title = this.document.querySelectorAll(".header-question"); //Da bi moglo da se klikne i na strelicu
     let isClicked = false;
     
     let rembemer = "" // Pamti string
@@ -15,6 +15,7 @@ window.addEventListener("load", function(){
     
     function showMsg()
     {
+        
         if(isClicked === true && rembemer !== this.parentElement.lastElementChild.innerHTML)
         {
             msg.style.height = "0";
@@ -23,7 +24,7 @@ window.addEventListener("load", function(){
             font.style.color = "";
             setTimeout(changeVisibility(isClicked, msg), 100);
         }
-        if(isClicked === true && rembemer == this.parentElement.parentElement.lastElementChild.innerHTML)
+        if(isClicked === true && rembemer === this.parentElement.childNodes[3].innerHTML)
         {
             msg.style.height = "0";
             arrow.style.transform = "rotateZ(0deg)";
@@ -34,33 +35,25 @@ window.addEventListener("load", function(){
         }
         else
         {
-            rembemer = this.parentElement.parentElement.lastElementChild.innerHTML;
-            
-            font = this;
-    
-            msg = this.parentElement.parentElement.lastElementChild;
-            arrow = this.parentElement.lastElementChild;
-
-            // console.log(arrow);
-
-            msg.style.height = "40px"; //22px
+            font = this.firstElementChild;
+            arrow = this.lastElementChild;
+            msg = this.parentElement.childNodes[3];
+            rembemer = this.parentElement.childNodes[3].innerHTML;
+        
+            msg.style.height = "55px"; //22px
             arrow.style.transform = "rotateZ(180deg)";
-            this.style.color = "#1E1F36";
-            this.style.fontWeight = "900";
+            font.style.color = "#1E1F36";
+            font.style.fontWeight = "900";
             setTimeout(changeVisibility(isClicked, msg), 100);
             
             isClicked = true;
         }
         
-        // console.log(this);
-
-        // msg.style.transform = "translateY(0px)";
+        
         
     }
-
     function changeVisibility(visible, element)
     {
         return visible === true ? element.classList.add("visible") : element.classList.remove("visible");
     }
-
 });

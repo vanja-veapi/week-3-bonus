@@ -41,7 +41,6 @@ p
 }
 .title:hover
 {
-    cursor: pointer;
     color: var(--soft-red);
 }
 .visible{visibility: visible;}
@@ -58,6 +57,7 @@ p
 }
 .questions
 {
+    height: 350px;
     width: 45%;
     margin: 0 0 0 auto;
     transform: translateY(25%);
@@ -69,6 +69,10 @@ p
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.header-question:hover
+{
+    cursor: pointer;
 }
 .question
 {
@@ -118,4 +122,50 @@ main
 #woman-desktop
 {
     left: -70px;
+}
+#woman-phone
+{
+    display: none;
+}
+
+@media screen and (max-width: 1000px) 
+{
+    main
+    {
+        width: 325px;
+        height: 535px;
+        background-position: 45px -131px;
+        background-size: 230px;
+        margin-top: 60px;
+    }
+    #woman-desktop
+    {
+        display: none;
+    }
+    .card-box 
+    {
+        display: none;
+    }
+    .card-women
+    {
+        top: -21%;
+        left: 12px;
+    }
+    h1
+    {
+        text-align: center;
+    }
+    p
+    {
+        font-size: 13px;
+    } 
+    .questions
+    {
+        width: 90%;
+        transform: translateY(35%);
+    }
+    #woman-phone
+    {
+        display: block;
+    }
 }
