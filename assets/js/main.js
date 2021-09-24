@@ -18,20 +18,22 @@ window.addEventListener("load", function(){
         
         if(isClicked === true && rembemer !== this.parentElement.lastElementChild.innerHTML)
         {
-            msg.style.height = "0";
-            arrow.style.transform = "rotateZ(0deg)";
-            font.style.fontWeight = "500";
-            font.style.color = "";
-            setTimeout(changeVisibility(isClicked, msg), 100);
+            // msg.style.height = "0";
+            // arrow.style.transform = "rotateZ(0deg)";
+            // font.style.fontWeight = "500";
+            // font.style.color = "";
+            // setTimeout(changeVisibility(isClicked, msg), 100);
+            changeCSStyle(msg, arrow, font, false);
         }
         if(isClicked === true && rembemer === this.parentElement.childNodes[3].innerHTML)
         {
-            msg.style.height = "0";
-            arrow.style.transform = "rotateZ(0deg)";
-            font.style.fontWeight = "500";
-            font.style.color = "";
-            setTimeout(changeVisibility(isClicked, msg), 100);
+            // msg.style.height = "0";
+            // arrow.style.transform = "rotateZ(0deg)";
+            // font.style.fontWeight = "500";
+            // font.style.color = "";
+            // setTimeout(changeVisibility(isClicked, msg), 100);
             isClicked = false
+            changeCSStyle(msg, arrow, font, false);
         }
         else
         {
@@ -40,13 +42,14 @@ window.addEventListener("load", function(){
             msg = this.parentElement.childNodes[3];
             rembemer = this.parentElement.childNodes[3].innerHTML;
         
-            msg.style.height = "55px"; //22px
-            arrow.style.transform = "rotateZ(180deg)";
-            font.style.color = "#1E1F36";
-            font.style.fontWeight = "900";
-            setTimeout(changeVisibility(isClicked, msg), 100);
+            // msg.style.height = "55px"; //22px
+            // arrow.style.transform = "rotateZ(180deg)";
+            // font.style.color = "#1E1F36";
+            // font.style.fontWeight = "900";
+            // setTimeout(changeVisibility(isClicked, msg), 100);
             
             isClicked = true;
+            changeCSStyle(msg, arrow, font, isClicked);
         }
         
         
@@ -55,5 +58,30 @@ window.addEventListener("load", function(){
     function changeVisibility(visible, element)
     {
         return visible === true ? element.classList.add("visible") : element.classList.remove("visible");
+    }
+
+    function changeCSStyle(message, arrow, font, isClicked)
+    {
+        if(isClicked === true)
+        {
+            message.style.height = "55px";
+            arrow.style.transform = "rotateZ(180deg)";
+            font.style.color = "#1E1F36";
+            font.style.fontWeight = "900";
+            setTimeout(changeVisibility(isClicked, message), 100);
+                
+            isClicked = true;
+            return [message, arrow, font, isClicked];
+        }
+        else
+        {
+            message.style.height = "0";
+            arrow.style.transform = "rotateZ(0deg)";
+            font.style.color = "";
+            font.style.fontWeight = "500";
+            setTimeout(changeVisibility(isClicked, message), 100);
+
+            isClicked = false
+        }
     }
 });
